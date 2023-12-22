@@ -66,8 +66,8 @@ module "alb" {
           target_id = aws_instance.blog.id
           port = 80
         }
+      }
     }
-  }
 
   listeners = {
     ex-http-https-redirect = {
@@ -79,6 +79,7 @@ module "alb" {
         status_code = "HTTP_301"
       }
     }
+
     ex-https = {
       port            = 443
       protocol        = "HTTPS"
@@ -92,6 +93,7 @@ module "alb" {
 
   tags = {
     Environment = "dev"
+  }
   }
 }
 
